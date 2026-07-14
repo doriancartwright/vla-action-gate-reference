@@ -34,7 +34,7 @@ This repository is not a production actuator-enforcement system.
 
 It does not include motor-driver enforcement, cryptographic actuator release tokens, ownership or custody gating, infrastructure gating, resource gating, identity or role gating, safety certification, or multi-gate actuation arbitration.
 
-Commercial implementations may require a separate EdgeRobotics license.
+Commercial implementations may require a separate TrustRobotics license.
 
 ## Intended Use
 
