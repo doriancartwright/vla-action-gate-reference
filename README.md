@@ -1,32 +1,16 @@
-# VLA Action Gate Reference
+# VLA Action Gate Reference — Moved
 
-Minimal **TrustBoundary-compatible reference implementation** for evaluating VLA-generated robot action proposals before physical execution.
+This standalone repository is retained for compatibility with existing links.
 
-## What This Is
+The VLA Action Gate reference component is now part of the primary **TrustBoundary™** repository:
 
-This repository demonstrates a small policy gate that consumes a proposed robot action plus robot/environment context and returns one of three decisions:
+`TrustRobotics/TrustBoundary/reference/vla-action-gate/`
 
-- `ALLOW`
-- `DENY`
-- `MODIFY`
+New reference-gate development should be made there.
 
-It is intended to illustrate the interface between AI-generated action proposals and a downstream execution-governance layer.
+## Why It Moved
 
-## Example Evaluation Inputs
-
-The reference gate can deny or modify commands based on example conditions such as:
-
-- human proximity;
-- emergency-stop state;
-- workspace bounds;
-- velocity limits;
-- force limits;
-- torque limits;
-- battery sufficiency;
-- role authorization;
-- denied action types.
-
-## Relationship to TrustBoundary
+The VLA action gate is a minimal reference implementation of TrustBoundary behavior rather than a separate TrustRobotics product.
 
 ```text
 VLA / Planner
@@ -35,57 +19,14 @@ VLA / Planner
 Candidate Action
      |
      v
-Reference Gate
-ALLOW / DENY / MODIFY
+TrustBoundary-compatible Reference Gate
      |
      v
 Robot Execution Layer
 ```
 
-The reference gate demonstrates only a small subset of the broader **TrustBoundary™** execution-governance architecture.
+This repository is no longer the canonical location for the reference implementation.
 
-TrustBoundary may additionally include predictive validation, validator selection, policy orchestration, execution envelopes, audit logging, release authorization, and actuator-level enforcement interfaces.
+## Safety / Patent Notice
 
-## Scope Boundary
-
-This repository is **not** a production actuator-enforcement system and does not provide:
-
-- motor-driver enforcement;
-- cryptographic actuator release tokens;
-- complete ownership or custody governance;
-- premises/network governance;
-- infrastructure or resource authorization;
-- safety certification;
-- a production multi-gate actuation arbiter.
-
-## Intended Use
-
-This project is intended for:
-
-- research;
-- prototyping;
-- interoperability testing;
-- developer education.
-
-It is not safety-certified and should not be used as the sole control boundary for a real robot, vehicle, industrial system, medical system, or other human-facing autonomous system.
-
-## Related Repositories
-
-- `TrustRobotics/TrustBoundary` — primary execution-governance architecture.
-- `TrustRobotics/vla-action-command-spec` — proposed action-command schemas.
-- `TrustRobotics/TrustRobotics-rfcs` — public RFC series.
-- `TrustRobotics/TrustRobotics-architecture` — umbrella architecture.
-
-## Status / Implementation State
-
-**Reference prototype.** This is illustrative code, not a complete production TrustBoundary implementation.
-
-## Licensing / Patent Notice
-
-Publication of this reference implementation does not grant any patent license. Commercial implementations of protected TrustRobotics technologies may require a separate TrustRobotics license.
-
-## Quick Start
-
-```bash
-python examples/demo_gate.py
-```
+The reference gate is not safety-certified. Publication does not grant any patent license. Commercial implementations of protected TrustRobotics technologies may require a separate license.
